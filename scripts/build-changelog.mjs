@@ -79,7 +79,7 @@ function getFirstParent(hash) {
 
 function readCardsAt(spec) {
   try {
-    return normalizeCards(parseCsv(git(["show", spec])));
+    return normalizeCards(parseCsv(gitText(["show", spec])));
   } catch (error) {
     return [];
   }
@@ -212,4 +212,25 @@ function getCommitUrl(hash) {
 
 function git(args) {
   return execFileSync("git", args, { encoding: "utf8" });
+}
+
+function gitText(args) {
+  return decodeText(execFileSync("git", args));
+}
+
+function decodeText(buffer) {
+  const utf8Text = new TextDecoder("utf-8").decode(buffer);
+  if (!looksBroken(utf8Text)) {
+    return utf8Text;
+  }
+
+  try {
+    return new TextDecoder("gb18030").decode(buffer);
+  } catch (error) {
+    return utf8Text;
+  }
+}
+
+function looksBroken(text) {
+  return text.includes("\uFFFD");
 }

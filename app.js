@@ -383,7 +383,9 @@
       if (!response.ok) {
         throw new Error(`读取失败：${url}`);
       }
-      return response.text();
+      return response.arrayBuffer();
+    }).then((buffer) => {
+      return decodeText(buffer);
     });
   }
 
@@ -516,6 +518,25 @@
   function csvEscape(value) {
     const text = String(value || "");
     return /[",\n]/.test(text) ? `"${text.replace(/"/g, '""')}"` : text;
+  }
+
+  function decodeText(buffer) {
+    const bytes = buffer instanceof ArrayBuffer ? new Uint8Array(buffer) : buffer;
+    const utf8Text = new TextDecoder("utf-8").decode(bytes);
+    if (!looksBroken(utf8Text)) {
+      return utf8Text;
+    }
+
+    try {
+      return new TextDecoder("gb18030").decode(bytes);
+    } catch (error) {
+      return utf8Text;
+    }
+  }
+
+  function looksBroken(text) {
+    const replacementCount = (text.match(/\uFFFD/g) || []).length;
+    return replacementCount > 0;
   }
 
   function escapeHtml(value) {
