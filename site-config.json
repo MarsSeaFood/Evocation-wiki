@@ -53,7 +53,7 @@
       "label": "UI中文",
       "header": "UI_cn",
       "role": "primaryName",
-      "showInCard": false,
+      "showInCard": true,
       "showInDetail": true,
       "searchable": true
     },
@@ -62,7 +62,7 @@
       "label": "UI英文",
       "header": "UI_en",
       "role": "secondaryName",
-      "showInCard": false,
+      "showInCard": true,
       "showInDetail": true,
       "searchable": true
     }
