@@ -1,0 +1,83 @@
+{
+  "siteName": "神力有限公司 Wiki",
+  "tagline": "Card Wiki Framework",
+  "dataFile": "cards.csv",
+  "fields": [
+    {
+      "key": "id",
+      "label": "ID",
+      "header": "id",
+      "role": "id",
+      "showInCard": true,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "nameCn",
+      "label": "中文名",
+      "header": "cardname_cn",
+      "role": "primaryName",
+      "showInCard": false,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "nameEn",
+      "label": "英文名",
+      "header": "cardname_en",
+      "role": "secondaryName",
+      "showInCard": false,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "effectCn",
+      "label": "中文效果",
+      "header": "cardeffect_cn",
+      "role": "body",
+      "showInCard": true,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "effectEn",
+      "label": "English Effect",
+      "header": "cardeffect_en",
+      "role": "body",
+      "showInCard": true,
+      "showInDetail": true,
+      "searchable": true
+    }
+  ],
+  "category": {
+    "sourceRole": "id",
+    "defaultLabel": "其他",
+    "rules": [
+      {
+        "prefix": "A",
+        "key": "action",
+        "label": "行动"
+      },
+      {
+        "prefix": "U",
+        "key": "unit",
+        "label": "单位"
+      },
+      {
+        "prefix": "E",
+        "key": "event",
+        "label": "事件"
+      },
+      {
+        "prefix": "S",
+        "key": "spell",
+        "label": "法术"
+      },
+      {
+        "prefix": "P",
+        "key": "passive",
+        "label": "被动"
+      }
+    ]
+  }
+}

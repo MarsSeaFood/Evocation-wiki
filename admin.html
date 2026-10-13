@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wiki 管理</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Wiki Admin</p>
+        <h1>管理页面</h1>
+      </div>
+      <div class="header-actions">
+        <a class="text-button" href="index.html">返回 Wiki</a>
+      </div>
+    </header>
+
+    <main class="admin-shell">
+      <section class="content admin-panel">
+        <div class="list-head">
+          <div>
+            <p class="eyebrow">Site</p>
+            <h2>基础设置</h2>
+          </div>
+          <button class="text-button" id="downloadConfig" type="button">下载配置</button>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>网页名称</span>
+            <input id="siteNameInput" type="text">
+          </label>
+          <label>
+            <span>副标题</span>
+            <input id="taglineInput" type="text">
+          </label>
+          <label>
+            <span>数据文件名</span>
+            <input id="dataFileInput" type="text">
+          </label>
+        </div>
+      </section>
+
+      <section class="content admin-panel">
+        <div class="list-head">
+          <div>
+            <p class="eyebrow">Fields</p>
+            <h2>表头与属性显示</h2>
+          </div>
+          <button class="text-button" id="addField" type="button">新增字段</button>
+        </div>
+        <div class="field-table" id="fieldTable"></div>
+      </section>
+
+      <section class="content admin-panel">
+        <div class="list-head">
+          <div>
+            <p class="eyebrow">Category</p>
+            <h2>分类规则</h2>
+          </div>
+          <button class="text-button" id="addRule" type="button">新增规则</button>
+        </div>
+        <div class="form-grid">
+          <label>
+            <span>分类来源角色</span>
+            <input id="categorySourceInput" type="text" placeholder="id">
+          </label>
+          <label>
+            <span>默认分类名称</span>
+            <input id="defaultCategoryInput" type="text">
+          </label>
+        </div>
+        <div class="rule-table" id="ruleTable"></div>
+      </section>
+
+      <section class="content admin-panel">
+        <p class="status">
+          下载后的文件名会是 site-config.json。把它上传并覆盖到 GitHub 仓库根目录，等待 GitHub Action 完成后，在线 Wiki 会采用新配置。
+        </p>
+      </section>
+    </main>
+
+    <script src="admin.js"></script>
+  </body>
+</html>
