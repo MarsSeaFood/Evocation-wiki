@@ -1,12 +1,12 @@
 {
-  "siteName": "神力有限公司 Wiki",
-  "tagline": "Card Wiki Framework",
+  "siteName": "恶魔召唤 Wiki",
+  "tagline": "Evocation Wiki",
   "dataFile": "cards.csv",
   "fields": [
     {
       "key": "id",
       "label": "ID",
-      "header": "id",
+      "header": "key",
       "role": "id",
       "showInCard": true,
       "showInDetail": true,
@@ -15,25 +15,25 @@
     {
       "key": "nameCn",
       "label": "中文名",
-      "header": "cardname_cn",
+      "header": "value1_zh",
       "role": "primaryName",
-      "showInCard": false,
+      "showInCard": true,
       "showInDetail": true,
       "searchable": true
     },
     {
       "key": "nameEn",
       "label": "英文名",
-      "header": "cardname_en",
+      "header": "value1_en",
       "role": "secondaryName",
-      "showInCard": false,
+      "showInCard": true,
       "showInDetail": true,
       "searchable": true
     },
     {
       "key": "effectCn",
       "label": "中文效果",
-      "header": "cardeffect_cn",
+      "header": "value2_zh",
       "role": "body",
       "showInCard": true,
       "showInDetail": true,
@@ -42,41 +42,64 @@
     {
       "key": "effectEn",
       "label": "English Effect",
-      "header": "cardeffect_en",
+      "header": "value2_en",
       "role": "body",
       "showInCard": true,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "UIcn",
+      "label": "UI中文",
+      "header": "UI_cn",
+      "role": "primaryName",
+      "showInCard": false,
+      "showInDetail": true,
+      "searchable": true
+    },
+    {
+      "key": "UIen",
+      "label": "UI英文",
+      "header": "UI_en",
+      "role": "secondaryName",
+      "showInCard": false,
       "showInDetail": true,
       "searchable": true
     }
   ],
   "category": {
     "sourceRole": "id",
-    "defaultLabel": "其他",
+    "defaultLabel": "默认",
     "rules": [
       {
-        "prefix": "A",
-        "key": "action",
-        "label": "行动"
+        "prefix": "PVP",
+        "key": "PVP",
+        "label": "PVP"
       },
       {
-        "prefix": "U",
-        "key": "unit",
-        "label": "单位"
+        "prefix": "PVE",
+        "key": "PVE",
+        "label": "PVE"
       },
       {
-        "prefix": "E",
-        "key": "event",
-        "label": "事件"
+        "prefix": "UI",
+        "key": "UI",
+        "label": "UI"
       },
       {
-        "prefix": "S",
-        "key": "spell",
-        "label": "法术"
+        "prefix": "tutorial",
+        "key": "tutorial",
+        "label": "教程"
       },
       {
-        "prefix": "P",
-        "key": "passive",
-        "label": "被动"
+        "prefix": "BUFF",
+        "key": "BUFF",
+        "label": "BUFF"
+      },
+      {
+        "prefix": "ENEMY",
+        "key": "ENEMY",
+        "label": "敌人"
       }
     ]
   }
